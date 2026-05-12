@@ -74,7 +74,7 @@ drevci-website/
 │   ├── components/
 │   │   ├── Navbar.tsx              # Sticky nav with mobile menu
 │   │   ├── Footer.tsx              # Site footer
-│   │   ├── Hero.tsx                # Landing hero with terminal demo
+│   │   ├── Hero.tsx                # Landing hero with counter animations
 │   │   ├── TerminalHero.tsx        # Animated terminal output
 │   │   ├── ComparisonTable.tsx     # Old way vs Drev CI
 │   │   ├── Features.tsx            # Bento grid feature cards
@@ -82,7 +82,9 @@ drevci-website/
 │   │   ├── PipelineDemo.tsx        # Animated pipeline visualization
 │   │   ├── Testimonials.tsx        # Customer testimonial cards
 │   │   ├── PricingCard.tsx         # Reusable pricing card
-│   │   └── WaitlistForm.tsx        # Email signup with API
+│   │   ├── WaitlistForm.tsx        # Email signup with API
+│   │   ├── ScrollProgress.tsx      # Gradient scroll progress bar
+│   │   └── BackToTop.tsx           # Floating back-to-top button
 │   └── lib/
 │       └── waitlist.ts             # In-memory waitlist store
 ├── public/

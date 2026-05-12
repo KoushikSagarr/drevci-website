@@ -33,7 +33,7 @@ const Footer = () => {
         <div>
           <h5 className="text-[12px] font-bold text-drev-text mb-6 uppercase tracking-widest">Community</h5>
           <ul className="space-y-4 text-[13px] text-drev-text-secondary">
-            <li><Link href="https://github.com/drevci/drev" className="hover:text-drev-text transition-colors">GitHub ↗</Link></li>
+            <li><Link href="https://github.com/KoushikSagarr/drevci" className="hover:text-drev-text transition-colors">GitHub ↗</Link></li>
             <li><Link href="https://discord.gg/drevci" className="hover:text-drev-text transition-colors">Discord ↗</Link></li>
             <li><Link href="https://twitter.com/drevci" className="hover:text-drev-text transition-colors">Twitter ↗</Link></li>
             <li><Link href="/status" className="hover:text-drev-text transition-colors">System Status</Link></li>

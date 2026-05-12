@@ -141,3 +141,74 @@ h1, h2, h3, h4 {
   background: rgba(56, 139, 253, 0.3);
   color: #e6edf3;
 }
+
+/* Scroll progress indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--scroll-progress, 0%);
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--success));
+  z-index: 9999;
+  transition: width 50ms linear;
+}
+
+/* Animated gradient text */
+.gradient-text-animated {
+  background: linear-gradient(90deg, #e6edf3, #388bfd, #3fb950, #e6edf3);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientMove 6s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Card glow on hover */
+.card-glow:hover {
+  box-shadow: 0 0 30px rgba(56, 139, 253, 0.08), 0 0 60px rgba(56, 139, 253, 0.03);
+  border-color: rgba(56, 139, 253, 0.2) !important;
+}
+
+/* Section divider glow */
+.section-glow-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(56,139,253,0.3) 50%, transparent 100%);
+}
+
+/* Marquee for logo bar */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Focus ring */
+input:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Smooth page transitions */
+main {
+  animation: pageIn 0.4s ease-out;
+}
+
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}

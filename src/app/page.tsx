@@ -9,13 +9,14 @@ import PipelineDemo from '@/components/PipelineDemo';
 import Testimonials from '@/components/Testimonials';
 import PricingCard from '@/components/PricingCard';
 import WaitlistForm from '@/components/WaitlistForm';
+import BackToTop from '@/components/BackToTop';
 import { motion } from 'framer-motion';
 
 const plans = [
   { 
     tier: "Free", price: "$0", desc: "For side projects", 
     feat: ["1 worker", "Self-hosted", "Community support"], 
-    cta: "Download", ctaHref: "https://github.com/drevci/drev",
+    cta: "Download", ctaHref: "https://github.com/KoushikSagarr/drevci",
     badge: "Forever free"
   },
   { 
@@ -36,6 +37,8 @@ const plans = [
   },
 ];
 
+const logos = ["Go", "Docker", "Rust", "Node.js", "Python", "GitHub", "Kubernetes", "TypeScript"];
+
 export default function Home() {
   return (
     <div className="bg-drev-bg">
@@ -43,23 +46,32 @@ export default function Home() {
       {/* SECTION 1: HERO */}
       <Hero />
 
-      {/* SECTION 2: LOGO BAR */}
-      <section className="py-16 border-y border-drev-border/30">
-        <div className="max-w-[1200px] mx-auto px-6 text-center">
-          <p className="text-[11px] text-drev-text-muted mb-10 uppercase tracking-[0.2em] font-bold">Trusted by teams shipping with</p>
-          <div className="flex flex-wrap justify-center items-center gap-10 md:gap-16 opacity-30 hover:opacity-50 transition-opacity duration-500">
-            {["Go", "Docker", "Rust", "Node.js", "Python", "GitHub"].map((name) => (
-              <span key={name} className="font-bold text-[18px] md:text-[22px] text-drev-text tracking-tightest">{name}</span>
+      {/* SECTION 2: LOGO BAR - Animated marquee */}
+      <section className="py-14 border-y border-drev-border/20 overflow-hidden">
+        <p className="text-[11px] text-drev-text-muted text-center mb-8 uppercase tracking-[0.2em] font-bold">Trusted by teams shipping with</p>
+        <div className="relative">
+          <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-drev-bg to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-drev-bg to-transparent z-10" />
+          <div className="flex animate-marquee whitespace-nowrap">
+            {[...logos, ...logos].map((name, i) => (
+              <span key={i} className="font-bold text-[20px] md:text-[24px] text-drev-text/20 hover:text-drev-text/40 tracking-tightest mx-8 md:mx-12 transition-colors cursor-default select-none">{name}</span>
             ))}
           </div>
         </div>
       </section>
 
+      {/* Glow divider */}
+      <div className="section-glow-divider" />
+
       {/* SECTION 3: COMPARISON */}
       <ComparisonTable />
 
+      <div className="section-glow-divider" />
+
       {/* SECTION 4: FEATURES */}
       <Features />
+
+      <div className="section-glow-divider" />
 
       {/* SECTION 5: HOW IT WORKS */}
       <HowItWorks />
@@ -81,8 +93,12 @@ export default function Home() {
         </div>
       </section>
 
+      <div className="section-glow-divider" />
+
       {/* SECTION 7: TESTIMONIALS */}
       <Testimonials />
+
+      <div className="section-glow-divider" />
 
       {/* SECTION 8: PRICING PREVIEW */}
       <section className="py-32 px-6 bg-drev-surface/10">
@@ -121,14 +137,17 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <Link href="/pricing" className="text-[14px] text-drev-accent hover:text-drev-accent-hover font-medium transition-colors">
-            Compare all plans →
+          <Link href="/pricing" className="text-[14px] text-drev-accent hover:text-drev-accent-hover font-medium transition-colors group">
+            Compare all plans <motion.span className="inline-block" animate={{ x: [0, 3, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>→</motion.span>
           </Link>
         </motion.div>
       </section>
 
       {/* SECTION 9: WAITLIST / CTA */}
       <WaitlistForm />
+
+      {/* Back to top */}
+      <BackToTop />
 
     </div>
   );

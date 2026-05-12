@@ -10,7 +10,7 @@ export default function PricingPage() {
       badge: "Forever free",
       features: ["1 worker", "Unlimited pipelines", "7-day log retention", "Community support", "Self-hosted only"],
       cta: "Download free",
-      ctaHref: "https://github.com/drevci/drev",
+      ctaHref: "https://github.com/KoushikSagarr/drevci",
     },
     {
       tier: "Team",
