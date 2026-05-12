@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0d1117;
+  --surface: #161b22;
+  --border: #30363d;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted: #6e7681;
+  --accent: #388bfd;
+  --accent-hover: #58a6ff;
+  --success: #3fb950;
+  --danger: #f85149;
+  --warning: #d29922;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--background);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typographic enhancements */
+h1, h2, h3, h4 {
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+
+/* Animations */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes seqFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.seq-fade-in {
+  opacity: 0;
+  animation: seqFadeIn 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 25%, rgba(56,139,253,0.08) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+/* Glassmorphism for Navbar */
+.nav-blur {
+  background-color: rgba(13, 17, 23, 0.8);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+}
+
+/* Button variants */
+.btn-primary {
+  @apply bg-drev-accent text-white font-semibold rounded-lg transition-all duration-200 active:scale-[0.98] hover:bg-drev-accent-hover shadow-lg shadow-drev-accent/20;
+}
+
+.btn-outline {
+  @apply border border-drev-border text-drev-text font-medium rounded-lg transition-all duration-200 hover:bg-drev-surface hover:border-drev-border-light;
+}
+
+/* Code block styling */
+.code-block {
+  @apply bg-drev-surface border border-drev-border rounded-xl overflow-x-auto font-mono text-[13px] leading-[1.7];
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #e6edf3 0%, #8b949e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Accent glow */
+.accent-glow {
+  box-shadow: 0 0 40px rgba(56, 139, 253, 0.15), 0 0 80px rgba(56, 139, 253, 0.05);
+}
+
+/* Selection */
+::selection {
+  background: rgba(56, 139, 253, 0.3);
+  color: #e6edf3;
+}
